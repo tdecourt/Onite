@@ -27,12 +27,12 @@
     <!-- Content -->
     <section class="mx-auto" style="margin-top: 96px; width: 80%; max-width: 1080px;">
         <!-- Caroussel -->
-        <div id="carouselExampleCaptions" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width: 1080px;">
+        <div id="carouselProjets" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width: 1080px;">
             <h2>Quelques projets</h2>
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselProjets" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselProjets" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselProjets" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -57,11 +57,11 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjets" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselProjets" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
@@ -93,19 +93,24 @@
         </div>
         <p class="text-center text-muted p-3 text-secondary">Réalisé par Thomas DECOURTY, Février 2022</p>
     </footer>
-    <button class="btn btn-primary" id="scroll-up" style="position: sticky; bottom: 15px; left: 85vw;">
-        Retourner en haut
+    <button class="btn btn-primary" id="scroll_up" style="position: sticky; bottom: 15px; left: 85vw;">
+        <img src="media/img/chevron_haut.png" alt="Retourner en haut" style="max-height: 30px;">
     </button>
 
     <!-- ----------- SCRIPTS ----------- -->
     <!-- import Bootstrap JS with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- import JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- My Script -->
     <script type="text/javascript">
         // Scroll up button
-        $("#scroll-up")[0].onclick = (evt) => {
+        if (document.documentElement.scrollTop < 20) $('#scroll_up').hide();
+        window.onscroll = (evt) => {
+            if (document.documentElement.scrollTop > 20 && $('#scroll_up').is(":hidden")) $('#scroll_up').show();
+            if (document.documentElement.scrollTop < 20 && $('#scroll_up').is(":visible")) $('#scroll_up').hide();
+        };
+        $("#scroll_up")[0].onclick = (evt) => {
             $(document).scrollTop(0);
         };
     </script>
